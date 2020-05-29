@@ -10,5 +10,8 @@ package graphred.shapes;
  * @author George
  */
 public class BaseShape {
+    public void addCoordinate(int x, int y){
+        
+    }
     
 }

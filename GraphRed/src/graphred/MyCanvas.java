@@ -1,5 +1,6 @@
 package graphred;
 
+import graphred.shapes.Queue;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,10 +10,10 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
+
 public class MyCanvas extends JPanel {
     ArrayList<Rectangle> rectList = new ArrayList<>();
-    ArrayList<Integer> x = new ArrayList<>();
-    ArrayList<Integer> y = new ArrayList<>();
+    
     ArrayList<Point2D> pointList = new ArrayList<>();
     MyCanvas me;
     private int mode;
@@ -22,6 +23,7 @@ public class MyCanvas extends JPanel {
     Graphics buffer;
     int width;
     int height;
+    Queue q;
     public int getMode(){
         return this.mode;
     }
@@ -30,10 +32,11 @@ public class MyCanvas extends JPanel {
     }
 
 
-    public MyCanvas(int width, int height){
+    public MyCanvas(int width, int height,Queue q){
         this();
         this.width = width;
         this.height = height;
+        this.q = q;
         buf = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         buffer = buf.getGraphics();
         buffer.setColor(Color.white);
@@ -54,8 +57,7 @@ public class MyCanvas extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                y.add(e.getY());
-                x.add(e.getX());
+                q.getLastShape().addCoordinate(e.getX(), e.getY());
                 me.PaintToBuffer();
                 me.repaint();
             }

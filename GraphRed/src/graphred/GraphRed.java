@@ -28,7 +28,7 @@ public class GraphRed  extends JFrame{
         this.setVisible(true);
         this.setLayout(null);
         
-        jp = new MyCanvas(1600,1000);
+        jp = new MyCanvas(1600,1000,q);
         jp.setVisible(true);
         jp.setBounds(120,70,1600,1000);
                 
@@ -38,6 +38,7 @@ public class GraphRed  extends JFrame{
         jb1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 jp.setMode(1);
             }
         });

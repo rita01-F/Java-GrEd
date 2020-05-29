@@ -5,10 +5,19 @@
  */
 package graphred.shapes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author George
  */
 public class Line extends BaseShape{
+    ArrayList<Integer> x = new ArrayList<>();
+    ArrayList<Integer> y = new ArrayList<>();
+    
+    public void addCoordinate(int x, int y){
+        this.x.add(x);
+        this.y.add(y);
+    }
     
 }
