@@ -55,7 +55,7 @@ public class GraphRed  extends JFrame{
         jb3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jp.setMode(2);
+                jp.setMode(3);
             }
         });
 
