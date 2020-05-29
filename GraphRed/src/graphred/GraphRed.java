@@ -29,7 +29,7 @@ public class GraphRed  extends JFrame{
         jp.setVisible(true);
         jp.setBounds(120,70,1600,1000);
                 
-        JButton jb1 = new JButton("Line");
+        JButton jb1 = new JButton("Kistochka");
         jb1.setVisible(true);
         jb1.setBounds(15, 70,100,30);
         jb1.addActionListener(new ActionListener() {
@@ -48,11 +48,22 @@ public class GraphRed  extends JFrame{
                 jp.setMode(2);
             }
         });
+        
+        JButton jb3 = new JButton("line");
+        jb3.setVisible(true);
+        jb3.setBounds(15, 150,100,30);
+        jb3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jp.setMode(2);
+            }
+        });
 
         
         this.add(jp);
         this.add(jb1);
         this.add(jb2);
+        this.add(jb3); 
         this.repaint();
         
     }
