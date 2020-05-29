@@ -5,9 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.sound.sampled.Line;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class MyCanvas extends JPanel {
@@ -19,7 +18,10 @@ public class MyCanvas extends JPanel {
     private int mode;
     Integer MouseX;
     Integer MouseY;
-
+    BufferedImage buf;
+    Graphics buffer;
+    int width;
+    int height;
     public int getMode(){
         return this.mode;
     }
@@ -28,6 +30,15 @@ public class MyCanvas extends JPanel {
     }
 
 
+    public MyCanvas(int width, int height){
+        this();
+        this.width = width;
+        this.height = height;
+        buf = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        buffer = buf.getGraphics();
+        buffer.setColor(Color.white);
+        buffer.fillRect(0, 0, width, height);
+    }
     
     public MyCanvas(){
         super();
@@ -45,40 +56,13 @@ public class MyCanvas extends JPanel {
             public void mousePressed(MouseEvent e) {
                 y.add(e.getY());
                 x.add(e.getX());
+                me.PaintToBuffer();
                 me.repaint();
-                
-                switch (mode){
-                    case 1:{}
-                    case 2:{
-                        pointList.add(e.getPoint());
-                    }
-                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
 
-                switch (mode){
-                    case 1:{}
-                    case 2:{
-                        pointList.add(e.getPoint());
-                        Rectangle rect =new Rectangle();
-                        rect.setFrameFromDiagonal(pointList.get(0),pointList.get(1));
-                        rectList.add(rect);
-                        pointList.remove(0);
-                        pointList.remove(0);
-                        repaint();
-                    }
-//                    case 3:{
-//                        pointList.add(e.getPoint());
-//                        Line line =new Line();
-//                        //line.setFrameFromDiagonal(pointList.get(0),pointList.get(1));
-//                        lineList.add(line);
-//                        pointList.remove(0);
-//                        pointList.remove(0);
-//                        repaint();
-//                    }
-                }
             }
 
             @Override
@@ -95,16 +79,6 @@ public class MyCanvas extends JPanel {
         this.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-//                switch (mode){
-//                    case 1:{
-//                        pointList.add(e.getPoint());
-//                        Rectangle rect =new Rectangle();
-//                        rect.setFrameFromDiagonal(pointList.get(0),new Point2D.Double(pointList.get(0).getX()+1,pointList.get(0).getY()+1));
-//                        rectList.add(rect);
-//                        pointList.remove(0);
-//                        repaint();
-//                    }
-//                }
             }
 
             @Override
@@ -112,43 +86,27 @@ public class MyCanvas extends JPanel {
                 
                 MouseX = e.getX();
                 MouseY = e.getY();
-                repaint();
-                switch (mode){
-                    case 1:{
-                        
-//                        pointList.add(e.getPoint());
-//                        Rectangle rect =new Rectangle();
-//                        rect.setFrameFromDiagonal(pointList.get(0),new Point2D.Double(pointList.get(0).getX()+1,pointList.get(0).getY()+1));
-//                        rectList.add(rect);
-//                        pointList.remove(0);
-//                        repaint();
-                    }
-                }
-                
+                me.PaintToBuffer();
+                me.repaint();
+               
             }
         });
-
-
-    } 
-    
-
-                
-    @Override
-    public void paint(Graphics g){
-        g.setColor(Color.white);
-        g.fillRect(0,0,1600,1000);
         
-        g.setColor(Color.black);
+    }        
+    public void PaintToBuffer() {
+        buffer.setColor(Color.white);
+        buffer.fillRect(0,0,1600,1000);
+        buffer.setColor(Color.black);
         for(int i = 1; i<x.size(); i++) {
-            g.drawLine(x.get(x.size()-1), y.get(y.size()-1), x.get(i), y.get(i));
+            buffer.drawLine(x.get(x.size()-1), y.get(y.size()-1), x.get(i), y.get(i));
         }
         if (x.size() != 0) {
-            g.drawLine(x.get(x.size()-1), y.get(y.size()-1), MouseX, MouseY);
+            buffer.drawLine(x.get(x.size()-1), y.get(y.size()-1), MouseX, MouseY);
         }
-//        for(Rectangle rect:rectList){
-//            g.drawRect(rect.x,rect.y,rect.width,rect.height);
-//        }
-        
+    }
+    @Override
+    public void paint(Graphics g){
+        g.drawImage(buf, 0, 0, me);
     }
     
     
