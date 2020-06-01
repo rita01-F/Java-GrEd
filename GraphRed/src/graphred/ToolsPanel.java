@@ -6,6 +6,7 @@
 package graphred;
 
 import graphred.shapes.Queue;
+import graphred.tools.EllipseButton;
 import graphred.tools.LineButton;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,6 +22,7 @@ public class ToolsPanel extends JPanel{
         this.setBounds(180, 0,  750, 40);
         this.setBackground(Color.gray);
         this.add(BorderLayout.WEST,new LineButton(q));
+        this.add(BorderLayout.WEST,new EllipseButton(q));
     }
     
 }

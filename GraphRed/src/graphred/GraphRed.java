@@ -6,9 +6,6 @@ import graphred.shapes.Line;
 import graphred.shapes.Queue;
 import graphred.tools.LineButton;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class GraphRed  extends JFrame{

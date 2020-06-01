@@ -7,6 +7,7 @@ package graphred.shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Shape;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ public class Line extends BaseShape{
     ArrayList<Integer> x;
     ArrayList<Integer> y;
     int xp,yp;
-    Line shape;
+    Shape shape;
     
     public Line(){
         this.x = new ArrayList<>();
@@ -52,5 +53,13 @@ public class Line extends BaseShape{
         this.shapeColor = color;
     }
     
+    @Override
+    public Color getColor(){
+        return shapeColor;
+    }
     
+    @Override
+    public Shape getShape(){
+        return shape;
+    }
 }
