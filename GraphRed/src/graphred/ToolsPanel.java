@@ -8,6 +8,8 @@ package graphred;
 import graphred.shapes.Queue;
 import graphred.tools.EllipseButton;
 import graphred.tools.LineButton;
+import graphred.tools.PoligonButton;
+import graphred.tools.RectButton;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -23,6 +25,8 @@ public class ToolsPanel extends JPanel{
         this.setBackground(Color.gray);
         this.add(BorderLayout.WEST,new LineButton(q));
         this.add(BorderLayout.WEST,new EllipseButton(q));
+        this.add(BorderLayout.WEST,new RectButton(q));
+        this.add(BorderLayout.WEST,new PoligonButton(q));
     }
     
 }
