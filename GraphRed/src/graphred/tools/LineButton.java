@@ -6,19 +6,22 @@
 package graphred.tools;
 
 import graphred.shapes.*;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author George
  */
-public class LineButton extends JButton {
-    BaseShape bs = new Line();
-    public LineButton(String name){
-        super(name);
-    }
-    
-    public BaseShape getShape(){
-        return new Line();
+public class LineButton extends BaseButton {
+    public LineButton(Queue q){
+        super("Polyline");
+        this.addActionListener(new ActionListener(){
+            
+             @Override
+             public void actionPerformed(ActionEvent arg0){
+                 q.addShape(new Line());
+             }
+        });
     }
 }

@@ -1,6 +1,7 @@
 
 package graphred.shapes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -9,7 +10,15 @@ import java.util.ArrayList;
  * @author George
  */
 public class Queue {
-    ArrayList<BaseShape> shapes = new ArrayList<>();
+    ArrayList<BaseShape> shapes;
+    Color currColor;
+    
+    public Queue(){
+        shapes = new ArrayList<>();
+        currColor = Color.BLACK;
+    }
+    
+    
     public int getSize(){
         return shapes.size();
     }
@@ -27,5 +36,11 @@ public class Queue {
         for (BaseShape bs:shapes){
             bs.paintShape(g);
         }
+    }
+    
+    public void setColor(){}
+    
+    public void setCurrColor(Color color){
+        this.currColor = color;
     }
 }

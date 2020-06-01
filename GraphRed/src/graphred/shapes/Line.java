@@ -5,6 +5,7 @@
  */
 package graphred.shapes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -13,9 +14,11 @@ import java.util.ArrayList;
  * @author George
  */
 public class Line extends BaseShape{
+    Color shapeColor;
     ArrayList<Integer> x;
     ArrayList<Integer> y;
     int xp,yp;
+    Line shape;
     
     public Line(){
         this.x = new ArrayList<>();
@@ -36,6 +39,7 @@ public class Line extends BaseShape{
     
     @Override
     public void paintShape(Graphics g){
+        g.setColor(shapeColor);
         for(int i = 1; i<x.size(); i++) {
             g.drawLine(x.get(i-1), y.get(i-1), x.get(i), y.get(i));
         }
@@ -43,4 +47,10 @@ public class Line extends BaseShape{
             g.drawLine(x.get(x.size()-1), y.get(y.size()-1), xp, yp);
         }
     }
+    @Override
+    public void setColor(Color color){
+        this.shapeColor = color;
+    }
+    
+    
 }

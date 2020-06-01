@@ -14,7 +14,7 @@ import javax.swing.*;
 public class GraphRed  extends JFrame{
 
     JFrame fr;
-    JButton jb1;
+    JButton jb;
     MyCanvas jp;
     Queue q = new Queue();
     
@@ -32,27 +32,25 @@ public class GraphRed  extends JFrame{
         jp.setVisible(true);
         jp.setBounds(120,70,1600,1000);
         q.addShape(new Line());
-        JButton jb1 = new LineButton("Line");
-        jb1.setVisible(true);
-        jb1.setBounds(15, 70,100,30);
-        jb1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (jb1 instanceof LineButton) 
-                    q.addShape(((LineButton)jb1).getShape());
-            }
-        });
+        JPanel colorButtonPanel = new ColorButtonsPanel(q);
+        this.add(colorButtonPanel);
+        JPanel toolsPanel = new ToolsPanel(q);
+        this.add(toolsPanel);
+        JButton jb = new LineButton(q);
+        jb.setVisible(true);
+        jb.setBounds(15, 70,100,30);
+        
 
         this.add(jp);
-        this.add(jb1);
+        this.add(jb);
         this.repaint();
         
     }
 
-    @Override
-    public void paint(Graphics g){
-        super.paint(g);
-    }
+//    @Override
+//    public void paint(Graphics g){
+//        super.paint(g);
+//    }
     
     public static void main(String[] args){
         GraphRed app =new GraphRed();

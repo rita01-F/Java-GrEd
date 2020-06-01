@@ -5,6 +5,7 @@
  */
 package graphred.shapes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -19,6 +20,9 @@ public class BaseShape {
         
     }
     public void paintShape(Graphics g){
+        
+    }
+    public void setColor(Color color){
         
     }
 }
