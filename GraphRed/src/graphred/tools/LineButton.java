@@ -19,6 +19,6 @@ public class LineButton extends JButton {
     }
     
     public BaseShape getShape(){
-        return bs;
+        return new Line();
     }
 }

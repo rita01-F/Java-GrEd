@@ -5,6 +5,8 @@
  */
 package graphred.shapes;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author George
@@ -13,5 +15,10 @@ public class BaseShape {
     public void addCoordinate(int x, int y){
         
     }
-    
+    public void putCanvasCoordinate(int x, int y){
+        
+    }
+    public void paintShape(Graphics g){
+        
+    }
 }

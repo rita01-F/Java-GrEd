@@ -2,6 +2,7 @@
 
 package graphred;
 
+import graphred.shapes.Line;
 import graphred.shapes.Queue;
 import graphred.tools.LineButton;
 import java.awt.Color;
@@ -14,7 +15,6 @@ public class GraphRed  extends JFrame{
 
     JFrame fr;
     JButton jb1;
-    JButton jb2;
     MyCanvas jp;
     Queue q = new Queue();
     
@@ -31,42 +31,20 @@ public class GraphRed  extends JFrame{
         jp = new MyCanvas(1600,1000,q);
         jp.setVisible(true);
         jp.setBounds(120,70,1600,1000);
-                
-        JButton jb1 = new LineButton("Kistochka");
+        q.addShape(new Line());
+        JButton jb1 = new LineButton("Line");
         jb1.setVisible(true);
         jb1.setBounds(15, 70,100,30);
         jb1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                jp.setMode(1);
+                if (jb1 instanceof LineButton) 
+                    q.addShape(((LineButton)jb1).getShape());
             }
         });
 
-        JButton jb2 = new JButton("Rectangle");
-        jb2.setVisible(true);
-        jb2.setBounds(15, 110,100,30);
-        jb2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jp.setMode(2);
-            }
-        });
-        
-//        JButton jb3 = new JButton("line");
-//        jb3.setVisible(true);
-//        jb3.setBounds(15, 150,100,30);
-//        jb3.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                jp.setMode(3);
-//            }
-//        });
-
-        
         this.add(jp);
         this.add(jb1);
-        this.add(jb2);
         this.repaint();
         
     }
@@ -81,11 +59,7 @@ public class GraphRed  extends JFrame{
         app.setAlwaysOnTop(true);
         app.setEnabled(true);
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-    
     }
-    
-        
 }
 
      

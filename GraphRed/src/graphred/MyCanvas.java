@@ -13,12 +13,9 @@ import javax.swing.JPanel;
 
 public class MyCanvas extends JPanel {
     ArrayList<Rectangle> rectList = new ArrayList<>();
-    
     ArrayList<Point2D> pointList = new ArrayList<>();
     MyCanvas me;
     private int mode;
-    Integer MouseX;
-    Integer MouseY;
     BufferedImage buf;
     Graphics buffer;
     int width;
@@ -85,9 +82,7 @@ public class MyCanvas extends JPanel {
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                
-                MouseX = e.getX();
-                MouseY = e.getY();
+                q.getLastShape().putCanvasCoordinate(e.getX(), e.getY());
                 me.PaintToBuffer();
                 me.repaint();
                
@@ -96,15 +91,12 @@ public class MyCanvas extends JPanel {
         
     }        
     public void PaintToBuffer() {
+        
         buffer.setColor(Color.white);
         buffer.fillRect(0,0,1600,1000);
         buffer.setColor(Color.black);
-        for(int i = 1; i<x.size(); i++) {
-            buffer.drawLine(x.get(x.size()-1), y.get(y.size()-1), x.get(i), y.get(i));
-        }
-        if (x.size() != 0) {
-            buffer.drawLine(x.get(x.size()-1), y.get(y.size()-1), MouseX, MouseY);
-        }
+        
+        q.paintShapes(buffer);
     }
     @Override
     public void paint(Graphics g){
