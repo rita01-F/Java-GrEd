@@ -27,19 +27,19 @@ public class GraphRed  extends JFrame{
         
         jp = new MyCanvas(1600,1000,q);
         jp.setVisible(true);
-        jp.setBounds(120,70,1600,1000);
+        jp.setBounds(0,40,1600,1000);
         q.addShape(new Line());
         JPanel colorButtonPanel = new ColorButtonsPanel(q);
         this.add(colorButtonPanel);
         JPanel toolsPanel = new ToolsPanel(q);
         this.add(toolsPanel);
-        JButton jb = new LineButton(q);
-        jb.setVisible(true);
-        jb.setBounds(15, 70,100,30);
+//        JButton jb = new LineButton(q);
+//        jb.setVisible(true);
+//        jb.setBounds(15, 70,100,30);
         
 
         this.add(jp);
-        this.add(jb);
+//        this.add(jb);
         this.repaint();
         
     }

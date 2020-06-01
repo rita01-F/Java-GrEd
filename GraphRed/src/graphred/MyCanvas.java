@@ -54,9 +54,11 @@ public class MyCanvas extends JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                q.getLastShape().addCoordinate(e.getX(), e.getY());
-                me.PaintToBuffer();
-                me.repaint();
+                if (e.getX()>=40){
+                    q.getLastShape().addCoordinate(e.getX(), e.getY());
+                    me.PaintToBuffer();
+                    me.repaint();
+                }
             }
 
             @Override
