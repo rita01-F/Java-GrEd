@@ -8,6 +8,7 @@ package graphred.shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Shape;
+//import java.awt.;
 import java.util.ArrayList;
 
 /**
@@ -20,16 +21,22 @@ public class Line extends BaseShape{
     ArrayList<Integer> y;
     int xp,yp;
     Shape shape;
+    int j;
     
     public Line(){
         this.x = new ArrayList<>();
         this.y = new ArrayList<>();
+        
     }
     
     @Override
     public void addCoordinate(int x, int y){
-        this.x.add(x);
-        this.y.add(y);
+        j++;
+        if (j%2 == 0){
+            this.x.add(x);
+            this.y.add(y);
+        }
+        
     }
     
     @Override
