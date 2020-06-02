@@ -52,8 +52,8 @@ public class Ellipse extends BaseShape{
     }
 
     @Override
-    public Shape getShape() {
-        return shape; //To change body of generated methods, choose Tools | Templates.
+    public String getShape() {
+        return("Ellipse"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

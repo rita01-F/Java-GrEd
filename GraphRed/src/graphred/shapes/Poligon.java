@@ -53,8 +53,8 @@ public class Poligon extends BaseShape{
     }
 
     @Override
-    public Shape getShape() {
-        return this.shape; //To change body of generated methods, choose Tools | Templates.
+    public String getShape() {
+        return("Polygon"); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -21,12 +21,13 @@ import javax.swing.JPanel;
 public class ToolsPanel extends JPanel{
     ToolsPanel(Queue q){
         super();
-        this.setBounds(180, 0,  400, 40);
+        this.setBounds(180, 0,  500, 40);
         this.setBackground(Color.gray);
         this.add(BorderLayout.WEST,new LineButton(q));
         this.add(BorderLayout.WEST,new EllipseButton(q));
         this.add(BorderLayout.WEST,new RectButton(q));
         this.add(BorderLayout.WEST,new PoligonButton(q));
+        
     }
     
 }

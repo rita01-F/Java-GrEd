@@ -43,4 +43,5 @@ public class Queue {
     public void setCurrColor(Color color){
         this.currColor = color;
     }
+    
 }

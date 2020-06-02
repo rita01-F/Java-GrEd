@@ -5,10 +5,11 @@ package graphred;
 import graphred.shapes.Line;
 import graphred.shapes.Queue;
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.*;
 
 public class GraphRed  extends JFrame{
-
     JFrame fr;
     JButton jb;
     MyCanvas jp;
@@ -27,11 +28,14 @@ public class GraphRed  extends JFrame{
         jp = new MyCanvas(1600,1000,q);
         jp.setVisible(true);
         jp.setBounds(0,40,1600,1000);
+        
         q.addShape(new Line());
+       
         JPanel colorButtonPanel = new ColorButtonsPanel(q);
         this.add(colorButtonPanel);
         JPanel toolsPanel = new ToolsPanel(q);
         this.add(toolsPanel);
+        
 //        JButton jb = new LineButton(q);
 //        jb.setVisible(true);
 //        jb.setBounds(15, 70,100,30);

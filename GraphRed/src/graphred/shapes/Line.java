@@ -66,8 +66,8 @@ public class Line extends BaseShape{
     }
     
     @Override
-    public Shape getShape(){
-        return shape;
+    public String getShape(){
+        return("Polyline");
     }
 
     @Override
