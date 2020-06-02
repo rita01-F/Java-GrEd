@@ -20,4 +20,5 @@ public abstract class BaseShape {
     abstract public void setColor(Color color);
     abstract public Color getColor();
     abstract public Shape getShape();
+    abstract public void setShape();
 }

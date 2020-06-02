@@ -62,4 +62,9 @@ public class Line extends BaseShape{
     public Shape getShape(){
         return shape;
     }
+
+    @Override
+    public void setShape() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

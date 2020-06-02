@@ -4,7 +4,6 @@ package graphred;
 
 import graphred.shapes.Line;
 import graphred.shapes.Queue;
-import graphred.tools.LineButton;
 import java.awt.Color;
 import javax.swing.*;
 

@@ -49,7 +49,7 @@ public class MyCanvas extends JPanel {
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                q.getLastShape().addCoordinate(e.getX(), e.getY());
             }
 
             @Override
@@ -63,7 +63,11 @@ public class MyCanvas extends JPanel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                if (e.getX()>=40){
+                    q.getLastShape().addCoordinate(e.getX(), e.getY());
+                    me.PaintToBuffer();
+                    me.repaint();
+                }
             }
 
             @Override
@@ -80,14 +84,17 @@ public class MyCanvas extends JPanel {
         this.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
+                if (e.getX()>=40){
+                    q.getLastShape().putCanvasCoordinate(e.getX(), e.getY());
+                    me.PaintToBuffer();
+                    me.repaint();
+                    
+                }
             }
 
             @Override
             public void mouseMoved(MouseEvent e) {
-                q.getLastShape().putCanvasCoordinate(e.getX(), e.getY());
-                me.PaintToBuffer();
-                me.repaint();
-               
+                
             }
         });
         

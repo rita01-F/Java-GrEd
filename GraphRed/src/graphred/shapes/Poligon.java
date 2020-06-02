@@ -8,8 +8,8 @@ package graphred.shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Shape;
+import java.awt.Polygon;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -20,33 +20,25 @@ public class Poligon extends BaseShape{
     ArrayList<Integer> x;
     ArrayList<Integer> y;
     int xp,yp;
-    Shape shape;
-    int[] ax;
-    int[] ay;
+    Polygon shape;
     
     public Poligon(){
-        this.ax = new int[100];
-        this.ay = new int[100];
+        this.shape = new Polygon();
     }
 
     @Override
     public void addCoordinate(int x, int y){
-        this.ax = addElement(ax,x);
-        this.ay = addElement(ay,y);
+        shape.addPoint(x, y);
     }
     
     @Override
     public void putCanvasCoordinate(int x, int y) {
-        xp = x;
-        yp = y;
     }
 
     @Override
     public void paintShape(Graphics g) {
         g.setColor(shapeColor);
-        for(int i = 1; i<x.size(); i++){
-            g.drawPolygon(ax, ay, i);
-        }
+        g.drawPolygon(shape);
          
     }
 
@@ -62,12 +54,13 @@ public class Poligon extends BaseShape{
 
     @Override
     public Shape getShape() {
-        return shape; //To change body of generated methods, choose Tools | Templates.
+        return this.shape; //To change body of generated methods, choose Tools | Templates.
     }
     
-    static int[] addElement(int[] a, int e) {
-    a  = Arrays.copyOf(a, a.length + 1);
-    a[a.length - 1] = e;
-    return a;
+    
+
+    @Override
+    public void setShape() {
+        this.shape = (Polygon)shape; //To change body of generated methods, choose Tools | Templates.
     }
 }
