@@ -5,73 +5,85 @@
  */
 package graphred.shapes;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Shape;
-//import java.awt.;
+import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.List;
+
+//import java.awt.;
 
 /**
- *
  * @author George
  */
-public class Line extends BaseShape{
+public class Line extends BaseShape {
     Color shapeColor;
     ArrayList<Integer> x;
     ArrayList<Integer> y;
-    int xp,yp;
-    Shape shape;
-    int j;
-    
-    public Line(){
+    List<Point2D> coordinates;
+    int[] x1, y1;
+
+    public Line() {
+        coordinates = new ArrayList<Point2D>();
         this.x = new ArrayList<>();
         this.y = new ArrayList<>();
-        
+
     }
-    
+
     @Override
-    public void addCoordinate(int x, int y){
-        j++;
-        if (j%2 == 0){
-            this.x.add(x);
-            this.y.add(y);
-        }
-        
+    public void addCoordinate(Point2D point) {
+        coordinates.add(point);
+        this.x.add((int) point.getX());
+        this.y.add((int) point.getY());
     }
-    
+
     @Override
-    public void putCanvasCoordinate(int x, int y) {
-        xp = x;
-        yp = y;
+    public void putCanvasCoordinate(Point2D point) {
+        this.coordinates.set(this.coordinates.size() - 1, point);
+        this.x.set(this.x.size() - 1, (int) point.getX());
+        this.y.set(this.y.size() - 1, (int) point.getY());
     }
-    
+
     @Override
-    public void paintShape(Graphics g){
+    public void paintShape(Graphics g) {
         g.setColor(shapeColor);
-        for(int i = 1; i<x.size(); i++) {
-            g.drawLine(x.get(i-1), y.get(i-1), x.get(i), y.get(i));
+        x1 = new int[x.size()];
+        y1 = new int[x.size()];
+        for (int i = 0; i < x.size(); i++) {
+            x1[i] = x.get(i);
+            y1[i] = y.get(i);
         }
-        if (!x.isEmpty()) {
-            g.drawLine(x.get(x.size()-1), y.get(y.size()-1), xp, yp);
-        }
+        g.drawPolyline(x1, y1, x.size());
     }
+
     @Override
-    public void setColor(Color color){
+    public void setColor(Color color) {
         this.shapeColor = color;
     }
-    
+
     @Override
-    public Color getColor(){
+    public Color getColor() {
         return shapeColor;
     }
-    
+
     @Override
-    public String getShape(){
-        return("Polyline");
+    public String getType() {
+        return ("Polyline");
     }
 
     @Override
     public void setShape() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Point2D> getPoints() {
+        return this.coordinates;
+    }
+
+    @Override
+    public void setCoordinates(List<Point2D> point) {
+        for (int i = 0; i<point.size(); i++){
+            addCoordinate(point.get(i));
+        }
     }
 }

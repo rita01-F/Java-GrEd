@@ -5,20 +5,23 @@
  */
 package graphred.shapes;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Shape;
+import java.awt.*;
+import java.awt.geom.Point2D;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
  * @author George
  */
-public abstract class BaseShape {
-    abstract public void addCoordinate(int x, int y);
-    abstract public void putCanvasCoordinate(int x, int y);
+public abstract class BaseShape implements Serializable {
+    abstract public void addCoordinate(Point2D point);
+    abstract public void putCanvasCoordinate(Point2D point);
     abstract public void paintShape(Graphics g);
     abstract public void setColor(Color color);
     abstract public Color getColor();
-    abstract public String getShape();
+    abstract public String getType();
     abstract public void setShape();
+    abstract public List<Point2D> getPoints();
+    abstract public void setCoordinates(List<Point2D> point);
 }

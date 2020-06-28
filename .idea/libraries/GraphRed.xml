@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GraphRed">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GraphRed.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

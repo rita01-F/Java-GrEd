@@ -6,28 +6,25 @@
 package graphred;
 
 import graphred.shapes.Queue;
-import graphred.tools.EllipseButton;
-import graphred.tools.LineButton;
-import graphred.tools.PoligonButton;
-import graphred.tools.RectButton;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import javax.swing.JPanel;
+import graphred.tools.*;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
  * @author George
  */
 public class ToolsPanel extends JPanel{
-    ToolsPanel(Queue q){
+    ToolsPanel(Queue q, MyCanvas jp){
         super();
-        this.setBounds(180, 0,  500, 40);
+        this.setBounds(180, 0,  550, 40);
         this.setBackground(Color.gray);
         this.add(BorderLayout.WEST,new LineButton(q));
         this.add(BorderLayout.WEST,new EllipseButton(q));
         this.add(BorderLayout.WEST,new RectButton(q));
         this.add(BorderLayout.WEST,new PoligonButton(q));
-        
+        this.add(BorderLayout.WEST, new Save());
+        this.add(BorderLayout.WEST, new Load(jp));
     }
-    
 }

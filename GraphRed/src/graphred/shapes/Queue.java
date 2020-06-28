@@ -10,20 +10,27 @@ import java.util.ArrayList;
  * @author George
  */
 public class Queue {
-    ArrayList<BaseShape> shapes;
-    Color currColor;
+    private ArrayList<BaseShape> shapes;
+    private Color currColor;
+    private static Queue me;
     
-    public Queue(){
+    private Queue(){
         shapes = new ArrayList<>();
         currColor = Color.BLACK;
     }
-    
+    public static Queue singleton(){
+        if(me == null){
+            me = new Queue();
+        }
+        return me;
+    }
     
     public int getSize(){
         return shapes.size();
     }
     
     public void addShape(BaseShape bt){
+        bt.setColor(this.currColor);
         shapes.add(bt);
     }
     
@@ -43,5 +50,8 @@ public class Queue {
     public void setCurrColor(Color color){
         this.currColor = color;
     }
-    
+
+    public ArrayList<BaseShape> getQueue() {
+        return shapes;
+    }
 }

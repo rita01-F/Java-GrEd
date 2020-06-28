@@ -21,8 +21,8 @@ public class BlueColorButton extends BaseColorButton{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				queue.getLastShape().setColor(Color.BLUE);
-				queue.setCurrColor(Color.BLUE);
+				Queue.singleton().getLastShape().setColor(Color.BLUE);
+				Queue.singleton().setCurrColor(Color.BLUE);
 			}
 		});
 	}

@@ -4,16 +4,15 @@ package graphred;
 
 import graphred.shapes.Line;
 import graphred.shapes.Queue;
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class GraphRed  extends JFrame{
     JFrame fr;
     JButton jb;
     MyCanvas jp;
-    Queue q = new Queue();
+    Queue q = Queue.singleton();
     
     public GraphRed(){
         super("New Graphics Edit");
@@ -33,7 +32,7 @@ public class GraphRed  extends JFrame{
        
         JPanel colorButtonPanel = new ColorButtonsPanel(q);
         this.add(colorButtonPanel);
-        JPanel toolsPanel = new ToolsPanel(q);
+        JPanel toolsPanel = new ToolsPanel(q, jp);
         this.add(toolsPanel);
         
 //        JButton jb = new LineButton(q);
