@@ -53,7 +53,6 @@ public class GraphRed  extends JFrame{
     
     public static void main(String[] args){
         GraphRed app =new GraphRed();
-        app.setAlwaysOnTop(true);
         app.setEnabled(true);
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

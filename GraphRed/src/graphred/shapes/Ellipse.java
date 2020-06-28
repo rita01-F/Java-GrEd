@@ -29,18 +29,22 @@ public class Ellipse extends BaseShape{
         x2 = 0;
         y1 = 0;
         y2 = 0;
+        coordinates.add(new Point2D.Double(x1,y1));
+        coordinates.add(new Point2D.Double(x1,y1));
     }
     
     @Override
     public void addCoordinate(Point2D point){
-        coordinates.add(point);
-        x1 = point.getX();
-        y1 = point.getY();
+        if (point.getX() != coordinates.get(1).getX()) {
+            coordinates.set(0, point);
+            x1 = point.getX();
+            y1 = point.getY();
+        }
     }
     
     @Override
     public void putCanvasCoordinate(Point2D point) {
-        coordinates.add(point);
+        coordinates.set(1,point);
         x2 = point.getX();
         y2 = point.getY();
         Rectangle rect = new Rectangle();
@@ -61,9 +65,11 @@ public class Ellipse extends BaseShape{
 
     @Override
     public void paintShape(Graphics g) {
-        g.setColor(shapeColor);
-        g.drawOval(((Rectangle)shape).x , ((Rectangle)shape).y, ((Rectangle)shape).width, ((Rectangle)shape).height);
-    }
+        if (shape!=null){
+            g.setColor(shapeColor);
+            g.drawOval(((Rectangle)shape).x , ((Rectangle)shape).y, ((Rectangle)shape).width, ((Rectangle)shape).height);
+        }
+     }
 
     @Override
     public void setColor(Color color) {
