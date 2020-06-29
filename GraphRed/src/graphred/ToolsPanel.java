@@ -18,7 +18,7 @@ import java.awt.*;
 public class ToolsPanel extends JPanel{
     ToolsPanel(Queue q, MyCanvas jp){
         super();
-        this.setBounds(180, 0,  550, 40);
+        this.setBounds(180, 0,  800, 40);
         this.setBackground(Color.gray);
         this.add(BorderLayout.WEST,new LineButton(q));
         this.add(BorderLayout.WEST,new EllipseButton(q));
@@ -26,5 +26,8 @@ public class ToolsPanel extends JPanel{
         this.add(BorderLayout.WEST,new PoligonButton(q));
         this.add(BorderLayout.WEST, new Save());
         this.add(BorderLayout.WEST, new Load(jp));
+        this.add(BorderLayout.WEST, new Refresh(jp));
+        this.add(BorderLayout.WEST, new SavePNG(jp));
+
     }
 }

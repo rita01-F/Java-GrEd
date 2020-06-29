@@ -16,11 +16,11 @@ import java.util.List;
  * @author George
  */
 public class Line extends BaseShape {
-    Color shapeColor;
-    ArrayList<Integer> x;
-    ArrayList<Integer> y;
-    List<Point2D> coordinates;
-    int[] x1, y1;
+    private Color shapeColor;
+    private ArrayList<Integer> x;
+    private ArrayList<Integer> y;
+    private List<Point2D> coordinates;
+    private int[] x1, y1;
 
     public Line() {
         coordinates = new ArrayList<Point2D>();

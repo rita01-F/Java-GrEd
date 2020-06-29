@@ -8,6 +8,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 public class MyCanvas extends JPanel {
@@ -97,6 +100,17 @@ public class MyCanvas extends JPanel {
 
         q.paintShapes(buffer);
     }
+    public void Refresh(){
+        buffer.setColor(Color.white);
+        buffer.fillRect(0,0,1600,1000);
+        buffer.setColor(Color.black);
+        q.RefreshQueue();
+        me.repaint();
+    }
+    public void SavePNG() throws IOException {
+        ImageIO.write(buf, "png", new File("image.png"));
+    }
+    
     @Override
     public void paint(Graphics g){
         g.drawImage(buf, 0, 0, me);

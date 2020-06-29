@@ -3,7 +3,10 @@ package graphred.shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -44,6 +47,9 @@ public class Queue {
             bs.paintShape(g);
         }
     }
+    public void RefreshQueue(){
+        shapes.clear();
+    }
     
     public void setColor(){}
     
@@ -54,4 +60,6 @@ public class Queue {
     public ArrayList<BaseShape> getQueue() {
         return shapes;
     }
+    
+   
 }

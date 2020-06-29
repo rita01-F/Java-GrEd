@@ -15,13 +15,13 @@ import java.util.List;
  * @author George
  */
 public class Ellipse extends BaseShape{
-    Color shapeColor;
-    double x1;
-    double x2;
-    double y1;
-    double y2;
-    Shape shape;
-    List<Point2D> coordinates;
+    private Color shapeColor;
+    private double x1;
+    private double x2;
+    private double y1;
+    private double y2;
+    private Shape shape;
+    private List<Point2D> coordinates;
     
     public Ellipse(){
         coordinates = new ArrayList<Point2D>();

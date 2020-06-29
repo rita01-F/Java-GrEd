@@ -9,10 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GraphRed  extends JFrame{
-    JFrame fr;
-    JButton jb;
-    MyCanvas jp;
-    Queue q = Queue.singleton();
+    private JFrame fr;
+    private MyCanvas jp;
+    private Queue q = Queue.singleton();
     
     public GraphRed(){
         super("New Graphics Edit");
