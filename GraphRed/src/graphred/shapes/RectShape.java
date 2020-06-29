@@ -65,22 +65,21 @@ public class RectShape extends BaseShape {
     @Override
     public void setColor(Color color) {
         this.shapeColor = color;
-        ; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Color getColor() {
-        return shapeColor; //To change body of generated methods, choose Tools | Templates.
+        return shapeColor;
     }
 
     @Override
     public String getType() {
-        return ("Rectangle"); //To change body of generated methods, choose Tools | Templates.
+        return ("Rectangle");
     }
 
     @Override
     public void setShape() {
-        this.shape = (Rectangle) shape; //To change body of generated methods, choose Tools | Templates.
+        this.shape = (Rectangle) shape;
     }
 
     @Override

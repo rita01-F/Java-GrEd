@@ -14,12 +14,12 @@ import javax.imageio.ImageIO;
 
 
 public class MyCanvas extends JPanel {
-    MyCanvas me;
-    BufferedImage buf;
-    Graphics buffer;
-    int width;
-    int height;
-    Queue q;
+    private MyCanvas me;
+    private BufferedImage buf;
+    private Graphics buffer;
+    private int width;
+    private int height;
+    private Queue q;
 
 
 

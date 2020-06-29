@@ -17,8 +17,7 @@ public class Loader {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            Queue queue = Queue.singleton();
-            //refresh();
+            Queue queue = Queue.singleton();       
             for (SaveShape saveShape : shapes.getShapes()) {
                 queue.setCurrColor(saveShape.getColor());
                 if (saveShape.getType().equals("Ellipse")) {

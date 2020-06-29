@@ -55,12 +55,12 @@ public class Ellipse extends BaseShape{
 
     @Override
     public Color getColor() {
-        return shapeColor; //To change body of generated methods, choose Tools | Templates.
+        return shapeColor; 
     }
 
     @Override
     public String getType() {
-        return("Ellipse"); //To change body of generated methods, choose Tools | Templates.
+        return("Ellipse"); 
     }
 
     @Override
@@ -73,12 +73,12 @@ public class Ellipse extends BaseShape{
 
     @Override
     public void setColor(Color color) {
-        this.shapeColor = color;; //To change body of generated methods, choose Tools | Templates.
+        this.shapeColor = color; 
     }
 
     @Override
     public void setShape() {
-        this.shape = (Rectangle)shape; //To change body of generated methods, choose Tools | Templates.
+        this.shape = (Rectangle)shape; 
     }
 
     @Override
