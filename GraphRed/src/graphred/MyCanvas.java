@@ -42,12 +42,14 @@ public class MyCanvas extends JPanel {
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                q.getLastShape().addCoordinate(e.getPoint());
+                if (e.getY()>=0 & !q.isEmpty()){
+                    q.getLastShape().addCoordinate(e.getPoint());
+                }
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if (e.getY()>=0){
+                if (e.getY()>=0 & !q.isEmpty()){
                     q.getLastShape().addCoordinate(e.getPoint());
                     me.PaintToBuffer();
                     me.repaint();
@@ -56,7 +58,7 @@ public class MyCanvas extends JPanel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if (e.getY()>=0){
+                if (e.getY()>=0 & !q.isEmpty()){
                     q.getLastShape().addCoordinate(e.getPoint());
                     me.PaintToBuffer();
                     me.repaint();
@@ -77,7 +79,7 @@ public class MyCanvas extends JPanel {
         this.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                if (e.getY()>=0){
+                if (e.getY()>=0 & !q.isEmpty()){
                     q.getLastShape().putCanvasCoordinate(e.getPoint());
                     me.PaintToBuffer();
                     me.repaint();
@@ -110,7 +112,7 @@ public class MyCanvas extends JPanel {
     public void SavePNG() throws IOException {
         ImageIO.write(buf, "png", new File("image.png"));
     }
-    
+
     @Override
     public void paint(Graphics g){
         g.drawImage(buf, 0, 0, me);

@@ -12,18 +12,17 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
  * @author George
  */
-public class ToolsPanel extends JPanel{
-    ToolsPanel(Queue q, MyCanvas jp){
+public class ToolsPanel extends JPanel {
+    ToolsPanel(Queue q, MyCanvas jp) {
         super();
-        this.setBounds(180, 0,  800, 40);
+        this.setBounds(180, 0, 800, 40);
         this.setBackground(Color.gray);
-        this.add(BorderLayout.WEST,new LineButton(q));
-        this.add(BorderLayout.WEST,new EllipseButton(q));
-        this.add(BorderLayout.WEST,new RectButton(q));
-        this.add(BorderLayout.WEST,new PoligonButton(q));
+        this.add(BorderLayout.WEST, new LineButton(q));
+        this.add(BorderLayout.WEST, new EllipseButton(q));
+        this.add(BorderLayout.WEST, new RectButton(q));
+        this.add(BorderLayout.WEST, new PoligonButton(q));
         this.add(BorderLayout.WEST, new Save());
         this.add(BorderLayout.WEST, new Load(jp));
         this.add(BorderLayout.WEST, new Refresh(jp));

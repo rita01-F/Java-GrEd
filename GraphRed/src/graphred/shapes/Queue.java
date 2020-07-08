@@ -9,57 +9,62 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
- *
  * @author George
  */
 public class Queue {
     private ArrayList<BaseShape> shapes;
     private Color currColor;
     private static Queue me;
-    
-    private Queue(){
+
+    private Queue() {
         shapes = new ArrayList<>();
         currColor = Color.BLACK;
     }
-    public static Queue singleton(){
-        if(me == null){
+
+    public static Queue singleton() {
+        if (me == null) {
             me = new Queue();
         }
         return me;
     }
-    
-    public int getSize(){
-        return shapes.size();
-    }
-    
-    public void addShape(BaseShape bt){
+
+
+    public void addShape(BaseShape bt) {
         bt.setColor(this.currColor);
         shapes.add(bt);
     }
-    
-    public BaseShape getLastShape(){
+
+    public BaseShape getLastShape() {
         if (shapes.isEmpty()) return null;
-        return shapes.get(shapes.size()-1);
+        return shapes.get(shapes.size() - 1);
     }
-    
-    public void paintShapes(Graphics g){
-        for (BaseShape bs:shapes){
+
+    public void paintShapes(Graphics g) {
+        for (BaseShape bs : shapes) {
             bs.paintShape(g);
         }
     }
-    public void RefreshQueue(){
+
+    public void RefreshQueue() {
         shapes.clear();
     }
-    
-    public void setColor(){}
-    
-    public void setCurrColor(Color color){
+
+    public void setColor() {
+    }
+
+    public void setCurrColor(Color color) {
         this.currColor = color;
     }
 
     public ArrayList<BaseShape> getQueue() {
         return shapes;
     }
-    
-   
+
+    public boolean isEmpty(){
+        if(shapes.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
 }

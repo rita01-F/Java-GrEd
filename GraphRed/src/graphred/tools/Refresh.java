@@ -6,15 +6,15 @@
 package graphred.tools;
 
 import graphred.MyCanvas;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
  * @author Windows
  */
 public class Refresh extends BaseButton {
-    
+
     public Refresh(MyCanvas jp) {
         super("Refresh");
         this.addActionListener(new ActionListener() {
@@ -24,5 +24,5 @@ public class Refresh extends BaseButton {
             }
         });
     }
-    
+
 }

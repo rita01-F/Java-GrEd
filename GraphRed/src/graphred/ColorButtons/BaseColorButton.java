@@ -8,10 +8,7 @@ package graphred.ColorButtons;
 import java.awt.Color;
 import javax.swing.JButton;
 
-/**
- *
- * @author George
- */
+
 public abstract class BaseColorButton extends JButton{
     BaseColorButton(){
         super();
