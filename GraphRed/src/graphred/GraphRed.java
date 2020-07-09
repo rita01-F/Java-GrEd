@@ -18,25 +18,19 @@ public class GraphRed extends JFrame {
         this.setLocation(0, 0);
         this.setSize(1900, 1000);
         this.getContentPane().setBackground(Color.DARK_GRAY);
-
         fr = this;
-        this.setVisible(true);
         this.setLayout(null);
-
         jp = new MyCanvas(1600, 1000, q);
         jp.setVisible(true);
         jp.setBounds(0, 40, 1600, 1000);
-
         q.addShape(new Line());
-
         JPanel colorButtonPanel = new ColorButtonsPanel(q);
         this.add(colorButtonPanel);
         JPanel toolsPanel = new ToolsPanel(q, jp);
         this.add(toolsPanel);
-
-
         this.add(jp);
         this.repaint();
+        this.setVisible(true);
 
     }
 

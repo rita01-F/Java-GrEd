@@ -17,16 +17,12 @@ public class MyCanvas extends JPanel {
     private MyCanvas me;
     private BufferedImage buf;
     private Graphics buffer;
-    private int width;
-    private int height;
     private Queue q;
 
 
 
     public MyCanvas(int width, int height,Queue q){
         this();
-        this.width = width;
-        this.height = height;
         this.q = q;
         buf = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         buffer = buf.getGraphics();
@@ -37,30 +33,27 @@ public class MyCanvas extends JPanel {
     public MyCanvas(){
         super();
         me= this;
-        boolean er = true;
 
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getY()>=0 & !q.isEmpty()){
+                if ( !q.isEmpty()){
                     q.getLastShape().addCoordinate(e.getPoint());
                 }
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if (e.getY()>=0 & !q.isEmpty()){
+                if ( !q.isEmpty()){
                     q.getLastShape().addCoordinate(e.getPoint());
                     me.PaintToBuffer();
-                    me.repaint();
                 }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if (e.getY()>=0 & !q.isEmpty()){
+                if ( !q.isEmpty()){
                     q.getLastShape().addCoordinate(e.getPoint());
-                    me.PaintToBuffer();
                     me.repaint();
                 }
             }
@@ -79,7 +72,7 @@ public class MyCanvas extends JPanel {
         this.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                if (e.getY()>=0 & !q.isEmpty()){
+                if ( !q.isEmpty()){
                     q.getLastShape().putCanvasCoordinate(e.getPoint());
                     me.PaintToBuffer();
                     me.repaint();
